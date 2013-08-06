@@ -9,9 +9,10 @@ License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
 # git clone git://anongit.kde.org/scratch/albertvaka/kdeconnect-kded
-Source:		%{name}-%{snapshot}.tar.bz2
+Source0:	%{name}-%{snapshot}.tar.bz2
 BuildRequires:	cmake
 BuildRequires:	kdelibs4-devel
+BuildRequires:	pkgconfig(QJson)
 
 %description
 KDE Connect is a module to connect KDE with your smartphone.
