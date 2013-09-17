@@ -1,12 +1,13 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
 Version:	0.1
-Release:	1
+Release:	2
 # In fact, unknown but let's keep KDE license
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/%{name}/%{version}/src/%{name}-kde-%{version}.tar.xz
+Patch0:		kdeconnect-kde-0.1-battery.patch
 BuildRequires:	cmake
 BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(QJson)
@@ -20,6 +21,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_kde_appsdir}/plasma/plasmoids/%{name}
 %{_kde_libdir}/kde4/kcm_kdeconnect.so
 %{_kde_libdir}/kde4/kded_kdeconnect.so
+%{_kde_libdir}/kde4/kdeconnect_battery.so
 %{_kde_libdir}/kde4/kdeconnect_clipboard.so
 %{_kde_libdir}/kde4/kdeconnect_mpriscontrol.so
 %{_kde_libdir}/kde4/kdeconnect_notifications.so
@@ -29,6 +31,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_kde_libdir}/kde4/imports/org/kde/kdeconnect
 %{_kde_services}/kcm_kdeconnect.desktop
 %{_kde_services}/kded/kdeconnect.desktop
+%{_kde_services}/kdeconnect_battery.desktop
 %{_kde_services}/kdeconnect_clipboard.desktop
 %{_kde_services}/kdeconnect_mpriscontrol.desktop
 %{_kde_services}/kdeconnect_notifications.desktop
@@ -58,6 +61,7 @@ Shared library for KDE Connect.
 
 %prep
 %setup -qn %{name}-kde-%{version}
+%patch0 -p1
 
 %build
 %cmake_kde4
