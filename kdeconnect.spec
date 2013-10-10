@@ -1,7 +1,7 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	0.1
-Release:	2
+Version:	0.3
+Release:	1
 # In fact, unknown but let's keep KDE license
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -16,7 +16,7 @@ BuildRequires:	pkgconfig(QJson)
 KDE Connect is a module to connect KDE with your smartphone.
 You need to install KdeConnect.apk on your smartphone to make it work.
 
-%files
+%files -f %{name}.lang
 %{_kde_appsdir}/%{name}
 %{_kde_appsdir}/plasma/plasmoids/%{name}
 %{_kde_libdir}/kde4/kcm_kdeconnect.so
@@ -71,4 +71,6 @@ Shared library for KDE Connect.
 %makeinstall_std -C build
 
 rm -f %{buildroot}%{_kde_libdir}/lib%{name}.so
+
+%find_lang kdeconnect-kcm kdeconnect-kded kdeconnect-plasmoid %{name}.lang
 
