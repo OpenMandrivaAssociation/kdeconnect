@@ -1,13 +1,15 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	0.3
+Version:	0.4.1
 Release:	1
-# In fact, unknown but let's keep KDE license
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/%{name}/%{version}/src/%{name}-kde-%{version}.tar.xz
-Patch0:		kdeconnect-kde-0.1-battery.patch
+# Based on 0.3 and l10n svn
+Source1:	kdeconnect-kde-i18n.tar.bz2
+Patch0:		kdeconnect-kde-0.4.1-cmake-po.patch
+Patch1:		kdeconnect-kde-0.4.1-cmake-tests.patch
 BuildRequires:	cmake
 BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(QJson)
@@ -27,6 +29,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_kde_libdir}/kde4/kdeconnect_notifications.so
 %{_kde_libdir}/kde4/kdeconnect_pausemusic.so
 %{_kde_libdir}/kde4/kdeconnect_ping.so
+%{_kde_libdir}/kde4/kdeconnect_sharereceiver.so
 %{_kde_libdir}/kde4/kdeconnect_telephony.so
 %{_kde_libdir}/kde4/imports/org/kde/kdeconnect
 %{_kde_services}/kcm_kdeconnect.desktop
@@ -37,6 +40,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_kde_services}/kdeconnect_notifications.desktop
 %{_kde_services}/kdeconnect_pausemusic.desktop
 %{_kde_services}/kdeconnect_ping.desktop
+%{_kde_services}/kdeconnect_sharereceiver.desktop
 %{_kde_services}/kdeconnect_telephony.desktop
 %{_kde_services}/plasma-kdeconnect.desktop
 %{_kde_servicetypes}/kdeconnect_plugin.desktop
@@ -62,6 +66,9 @@ Shared library for KDE Connect.
 %prep
 %setup -qn %{name}-kde-%{version}
 %patch0 -p1
+%patch1 -p1
+
+tar -xf %{SOURCE1}
 
 %build
 %cmake_kde4

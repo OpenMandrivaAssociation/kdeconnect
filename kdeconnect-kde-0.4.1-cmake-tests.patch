@@ -1,0 +1,11 @@
+diff -urN kdeconnect-kde-0.4.1/tests/CMakeLists.txt kdeconnect-kde-0.4.1-patched/tests/CMakeLists.txt
+--- kdeconnect-kde-0.4.1/tests/CMakeLists.txt	2013-10-30 11:56:11.000000000 +1100
++++ kdeconnect-kde-0.4.1-patched/tests/CMakeLists.txt	2013-11-09 02:04:15.691029502 +1100
+@@ -24,6 +24,6 @@
+ )
+ 
+ #NetworkPackage
+-kde4_add_unit_test(kdeconnect_tests ../kded/networkpackage.cpp ../kded/filetransferjob.cpp networkpackagetests.cpp)
++kde4_add_unit_test(kdeconnect_tests ../kded/networkpackage.cpp ../kded/filetransferjob.cpp ../kded/kdebugnamespace.cpp networkpackagetests.cpp)
+ target_link_libraries(kdeconnect_tests ${kdeconnect_libraries})
+ 
