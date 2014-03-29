@@ -1,14 +1,11 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	0.4.2
+Version:	0.5.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/%{name}/%{version}/src/%{name}-kde-%{version}.tar.xz
-# Based on 0.3 and l10n svn
-Source1:	kdeconnect-kde-i18n.tar.bz2
-Patch0:		kdeconnect-kde-0.4.1-cmake-po.patch
 BuildRequires:	cmake
 BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(QJson)
@@ -18,8 +15,10 @@ KDE Connect is a module to connect KDE with your smartphone.
 You need to install KdeConnect.apk on your smartphone to make it work.
 
 %files -f %{name}.lang
+%{_kde_applicationsdir}/%{name}.desktop
 %{_kde_appsdir}/%{name}
 %{_kde_appsdir}/plasma/plasmoids/%{name}
+%{_kde_iconsdir}/hicolor/*/apps/%{name}.*
 %{_kde_libdir}/kde4/kcm_kdeconnect.so
 %{_kde_libdir}/kde4/kded_kdeconnect.so
 %{_kde_libdir}/kde4/kdeconnect_battery.so
@@ -33,6 +32,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_kde_libdir}/kde4/kdeconnect_share_config.so
 %{_kde_libdir}/kde4/kdeconnect_telephony.so
 %{_kde_libdir}/kde4/imports/org/kde/kdeconnect
+%{_kde_libdir}/kde4/libexec/kdeconnectd
 %{_kde_services}/kcm_kdeconnect.desktop
 %{_kde_services}/kded/kdeconnect.desktop
 %{_kde_services}/kdeconnect_battery.desktop
@@ -68,9 +68,6 @@ Shared library for KDE Connect.
 
 %prep
 %setup -qn %{name}-kde-%{version}
-%patch0 -p1
-
-tar -xf %{SOURCE1}
 
 %build
 %cmake_kde4
@@ -81,5 +78,5 @@ tar -xf %{SOURCE1}
 
 rm -f %{buildroot}%{_kde_libdir}/lib%{name}.so
 
-%find_lang kdeconnect-kcm kdeconnect-kded kdeconnect-plasmoid %{name}.lang
+%find_lang kdeconnect-kcm kdeconnect-kded kdeconnect-plasmoid kdeconnect-kio plasma_applet_kdeconnect %{name}.lang
 
