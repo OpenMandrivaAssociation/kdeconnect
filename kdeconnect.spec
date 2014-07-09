@@ -1,12 +1,11 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	0.7
+Version:	0.7.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/%{name}/%{version}/src/%{name}-kde-%{version}.tar.xz
-Patch0:		kdeconnect-kde-0.7-soname.patch
 BuildRequires:	cmake
 BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(QJson)
@@ -95,7 +94,6 @@ Shared library for KDE Connect.
 
 %prep
 %setup -qn %{name}-kde-%{version}
-%patch0 -p1
 
 %build
 %cmake_kde4
