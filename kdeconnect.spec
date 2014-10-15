@@ -1,7 +1,7 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
 Version:	0.7.2
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
@@ -9,6 +9,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/unstable/%{name}/%{version}/src/%{name}-kde-%
 BuildRequires:	cmake
 BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(QJson)
+BuildRequires:	pkgconfig(xtst)
 
 %description
 KDE Connect is a module to connect KDE with your smartphone.
