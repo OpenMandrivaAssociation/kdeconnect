@@ -9,6 +9,7 @@ Source0:	ftp://ftp.kde.org/pub/kde/unstable/%{name}/%{version}/src/%{name}-kde-%
 BuildRequires:	cmake
 BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(QJson)
+BuildRequires:	pkgconfig(xtst)
 
 %description
 KDE Connect is a module to connect KDE with your smartphone.
