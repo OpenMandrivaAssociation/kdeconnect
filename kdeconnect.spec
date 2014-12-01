@@ -10,6 +10,7 @@ BuildRequires:	cmake
 BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(QJson)
 BuildRequires:	pkgconfig(xtst)
+BuildRequires:	pkgconfig(libfakekey)
 BuildRequires:	qca2-devel-qt4
 
 %description
