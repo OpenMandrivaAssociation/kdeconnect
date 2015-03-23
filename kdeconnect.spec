@@ -39,6 +39,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_kde_libdir}/kde4/imports/org/kde/kdeconnect
 %{_kde_libdir}/kde4/libexec/kdeconnectd
 %{_kde_libdir}/kde4/kdeconnect_mousepad.so
+%{_kde_libdir}/kde4/kdeconnect_screensaver_inhibit.so
 %{_kde_libdir}/kde4/kdeconnect_sftp.so
 %{_kde_libdir}/kde4/kdeconnect_sftp_config.so
 %{_kde_libdir}/kde4/kdeconnectfiletiemaction.so
@@ -58,11 +59,13 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_kde_services}/plasma-kdeconnect.desktop
 %{_kde_services}/kdeconnect.protocol
 %{_kde_services}/kdeconnect_mousepad.desktop
+%{_kde_services}/kdeconnect_screensaver_inhibit.desktop
 %{_kde_services}/kdeconnect_sftp.desktop
 %{_kde_services}/kdeconnect_sftp_config.desktop
 %{_kde_services}/kdeconnectsendfile.desktop
 %{_kde_servicetypes}/kdeconnect_plugin.desktop
 %{_datadir}/dbus-1/interfaces/*.xml
+%{_datadir}/dbus-1/services/org.kde.kdeconnect.service
 
 #----------------------------------------------------------------------------
 
