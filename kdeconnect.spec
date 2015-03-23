@@ -1,7 +1,7 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	0.7.3
-Release:	1.1
+Version:	0.8
+Release:	0.1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
@@ -11,6 +11,7 @@ BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(QJson)
 BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(libfakekey)
+BuildRequires:	qca2-devel-qt4
 Requires:	sshfs
 
 %description
@@ -38,6 +39,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_kde_libdir}/kde4/imports/org/kde/kdeconnect
 %{_kde_libdir}/kde4/libexec/kdeconnectd
 %{_kde_libdir}/kde4/kdeconnect_mousepad.so
+%{_kde_libdir}/kde4/kdeconnect_screensaver_inhibit.so
 %{_kde_libdir}/kde4/kdeconnect_sftp.so
 %{_kde_libdir}/kde4/kdeconnect_sftp_config.so
 %{_kde_libdir}/kde4/kdeconnectfiletiemaction.so
@@ -57,11 +59,13 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_kde_services}/plasma-kdeconnect.desktop
 %{_kde_services}/kdeconnect.protocol
 %{_kde_services}/kdeconnect_mousepad.desktop
+%{_kde_services}/kdeconnect_screensaver_inhibit.desktop
 %{_kde_services}/kdeconnect_sftp.desktop
 %{_kde_services}/kdeconnect_sftp_config.desktop
 %{_kde_services}/kdeconnectsendfile.desktop
 %{_kde_servicetypes}/kdeconnect_plugin.desktop
 %{_datadir}/dbus-1/interfaces/*.xml
+%{_datadir}/dbus-1/services/org.kde.kdeconnect.service
 
 #----------------------------------------------------------------------------
 
@@ -99,6 +103,9 @@ Shared library for KDE Connect.
 %setup -qn %{name}-kde-%{version}
 
 %build
+# our qca pkg config is in a non standard path due to qt5/4 split
+export PKG_CONFIG_PATH=%{_libdir}/qt4/pkgconfig
+
 %cmake_kde4
 %make
 
