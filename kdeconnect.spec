@@ -11,7 +11,7 @@ BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(QJson)
 BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(libfakekey)
-BuildRequires:	qca2-devel-qt4
+BuildRequires:	qca2-devel
 Requires:	sshfs
 
 %description
@@ -104,7 +104,7 @@ Shared library for KDE Connect.
 
 %build
 # our qca pkg config is in a non standard path due to qt5/4 split
-export PKG_CONFIG_PATH=%{_libdir}/qt4/pkgconfig
+export PKG_CONFIG_PATH=%{_libdir}/pkgconfig/qca2.pc
 
 %cmake_kde4
 %make
