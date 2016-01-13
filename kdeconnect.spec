@@ -1,17 +1,17 @@
+%define oname kdeconnect-kde
+
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	0.8
-Release:	2
+Version:	0.9
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
-Source0:	ftp://ftp.kde.org/pub/kde/unstable/%{name}/%{version}/src/%{name}-kde-%{version}.tar.xz
-BuildRequires:	cmake
-BuildRequires:	kdelibs4-devel
-BuildRequires:	pkgconfig(QJson)
-BuildRequires:	pkgconfig(xtst)
+Source0:	http://download.kde.org/unstable/kdeconnect/%{version}/src/%{oname}-%{version}f.tar.xz
+BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(libfakekey)
-BuildRequires:	qca2-devel-qt4
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(xtst)
 Requires:	sshfs
 
 %description
@@ -100,17 +100,14 @@ Shared library for KDE Connect.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -qn %{name}-kde-%{version}
+%setup -qn %{oname}-%{version}
+%cmake_kde5 -DEXPERIMENTALAPP_ENABLED=ON
 
 %build
-# our qca pkg config is in a non standard path due to qt5/4 split
-export PKG_CONFIG_PATH=%{_libdir}/qt4/pkgconfig
-
-%cmake_kde4
-%make
+%ninja -C build
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
 
 # Drop devel files for now because they are messed up
 rm -f %{buildroot}%{_kde_libdir}/*.so
