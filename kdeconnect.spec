@@ -63,7 +63,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 
 #----------------------------------------------------------------------------
 
-%define core_major 1
+%define core_major 0
 %define libcore %mklibname kdeconnectcore %{core_major}
 
 %package -n %{libcore}
@@ -74,11 +74,11 @@ Group:		System/Libraries
 Shared library for KDE Connect.
 
 %files -n %{libcore}
-%{_kde_libdir}/libkdeconnectcore.so.%{core_major}*
+%{_libdir}/libkdeconnectcore.so.%{core_major}*
 
 #----------------------------------------------------------------------------
 
-%define interfaces_major 1
+%define interfaces_major 0
 %define libinterfaces %mklibname kdeconnectinterfaces %{interfaces_major}
 
 %package -n %{libinterfaces}
@@ -89,7 +89,7 @@ Group:		System/Libraries
 Shared library for KDE Connect.
 
 %files -n %{libinterfaces}
-%{_kde_libdir}/libkdeconnectinterfaces.so.%{interfaces_major}*
+%{_libdir}/libkdeconnectinterfaces.so.%{interfaces_major}*
 
 #----------------------------------------------------------------------------
 
