@@ -94,7 +94,7 @@ Shared library for KDE Connect.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -qn %{oname}-%{version}
+%setup -qn %{oname}-%{version}g
 %cmake_kde5 -DEXPERIMENTALAPP_ENABLED=ON
 
 %build
