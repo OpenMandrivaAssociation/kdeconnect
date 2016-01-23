@@ -40,7 +40,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_kde5_iconsdir}/hicolor/*/status/smartphone-*.*
 %{_kde5_iconsdir}/hicolor/*/status/tablet-*.*
 %{_kde5_libexecdir}/kdeconnectd
-%{_kde5_notificationsdir}/kdeconnect.notifyrc
+%{_datadir}/knotifications5/kdeconnect.notifyrc
 %{_kde5_services}/kcm_kdeconnect.desktop
 %{_kde5_services}/kdeconnect_pausemusic_config.desktop
 %{_kde5_services}/kdeconnect_share_config.desktop
@@ -90,6 +90,19 @@ Shared library for KDE Connect.
 
 %files -n %{libinterfaces}
 %{_libdir}/libkdeconnectinterfaces.so.%{interfaces_major}*
+
+%define plugin_major 0
+%define libplugin %mklibname kdeconnectpluginkcm %{plugin_major}
+
+%package -n %{libplugin}
+Summary:	Shared library for %{name}
+Group:		System/Libraries
+
+%description -n %{libplugin}
+Shared library for %{name}.
+
+%files -n %{libplugin}
+%{_kde5_libdir}/libkdeconnectpluginkcm.so.%{plugin_major}*
 
 #----------------------------------------------------------------------------
 
