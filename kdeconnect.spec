@@ -9,9 +9,22 @@ Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
 Source0:	http://download.kde.org/unstable/kdeconnect/%{version}/src/%{oname}-%{version}g.tar.xz
 BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(KF5KCMUtils)
+BuildRequires:	cmake(KF5Declarative)
+BuildRequires:	cmake(KF5Notifications)
+BuildRequires:	cmake(KF5KIO)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5ConfigWidgets)
+BuildRequires:	cmake(KF5DBusAddons)
+BuildRequires:	cmake(KF5IconThemes)
+BuildRequires:	cmake(KF5Wayland)
 BuildRequires:	pkgconfig(libfakekey)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xtst)
+BuildRequires:	pkgconfig(Qt5X11Extras)
+BuildRequires:	pkgconfig(Qt5Quick)
+BuildRequires:	pkgconfig(Qt5Test)
+BuildRequires:	pkgconfig(qca2-qt5)
 Requires:	sshfs
 
 %description
