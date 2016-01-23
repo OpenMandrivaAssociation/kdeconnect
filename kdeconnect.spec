@@ -7,7 +7,7 @@ Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
-Source0:	http://download.kde.org/unstable/kdeconnect/%{version}/src/%{oname}-%{version}f.tar.xz
+Source0:	http://download.kde.org/unstable/kdeconnect/%{version}/src/%{oname}-%{version}g.tar.xz
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(libfakekey)
 BuildRequires:	pkgconfig(x11)
@@ -19,53 +19,34 @@ KDE Connect is a module to connect KDE with your smartphone.
 You need to install KdeConnect.apk on your smartphone to make it work.
 
 %files -f %{name}.lang
-%{_bindir}/kdeconnect-cli
-%{_kde_applicationsdir}/%{name}.desktop
-%{_kde_appsdir}/%{name}/
-%{_kde_appsdir}/plasma/plasmoids/%{name}
-%{_kde_iconsdir}/hicolor/*/apps/%{name}.*
-%{_kde_libdir}/kde4/kcm_kdeconnect.so
-%{_kde_libdir}/kde4/kded_kdeconnect.so
-%{_kde_libdir}/kde4/kdeconnect_battery.so
-%{_kde_libdir}/kde4/kdeconnect_clipboard.so
-%{_kde_libdir}/kde4/kdeconnect_mpriscontrol.so
-%{_kde_libdir}/kde4/kdeconnect_notifications.so
-%{_kde_libdir}/kde4/kdeconnect_pausemusic.so
-%{_kde_libdir}/kde4/kdeconnect_pausemusic_config.so
-%{_kde_libdir}/kde4/kdeconnect_ping.so
-%{_kde_libdir}/kde4/kdeconnect_share.so
-%{_kde_libdir}/kde4/kdeconnect_share_config.so
-%{_kde_libdir}/kde4/kdeconnect_telephony.so
-%{_kde_libdir}/kde4/imports/org/kde/kdeconnect
-%{_kde_libdir}/kde4/libexec/kdeconnectd
-%{_kde_libdir}/kde4/kdeconnect_mousepad.so
-%{_kde_libdir}/kde4/kdeconnect_screensaver_inhibit.so
-%{_kde_libdir}/kde4/kdeconnect_sftp.so
-%{_kde_libdir}/kde4/kdeconnect_sftp_config.so
-%{_kde_libdir}/kde4/kdeconnectfiletiemaction.so
-%{_kde_libdir}/kde4/kio_kdeconnect.so
-%{_kde_services}/kcm_kdeconnect.desktop
-%{_kde_services}/kded/kdeconnect.desktop
-%{_kde_services}/kdeconnect_battery.desktop
-%{_kde_services}/kdeconnect_clipboard.desktop
-%{_kde_services}/kdeconnect_mpriscontrol.desktop
-%{_kde_services}/kdeconnect_notifications.desktop
-%{_kde_services}/kdeconnect_pausemusic.desktop
-%{_kde_services}/kdeconnect_pausemusic_config.desktop
-%{_kde_services}/kdeconnect_ping.desktop
-%{_kde_services}/kdeconnect_share.desktop
-%{_kde_services}/kdeconnect_share_config.desktop
-%{_kde_services}/kdeconnect_telephony.desktop
-%{_kde_services}/plasma-kdeconnect.desktop
-%{_kde_services}/kdeconnect.protocol
-%{_kde_services}/kdeconnect_mousepad.desktop
-%{_kde_services}/kdeconnect_screensaver_inhibit.desktop
-%{_kde_services}/kdeconnect_sftp.desktop
-%{_kde_services}/kdeconnect_sftp_config.desktop
-%{_kde_services}/kdeconnectsendfile.desktop
-%{_kde_servicetypes}/kdeconnect_plugin.desktop
-%{_datadir}/dbus-1/interfaces/*.xml
+%{_kde5_bindir}/kcapp
+%{_kde5_bindir}/kdeconnect-cli
+%{_kde5_applicationsdir}/*.desktop
+%{_kde5_iconsdir}/hicolor/*/apps/kdeconnect.*
+%{_kde5_iconsdir}/hicolor/*/status/laptop-*.*
+%{_kde5_iconsdir}/hicolor/*/status/smartphone-*.*
+%{_kde5_iconsdir}/hicolor/*/status/tablet-*.*
+%{_kde5_libexecdir}/kdeconnectd
+%{_kde5_notificationsdir}/kdeconnect.notifyrc
+%{_kde5_services}/kcm_kdeconnect.desktop
+%{_kde5_services}/kdeconnect_pausemusic_config.desktop
+%{_kde5_services}/kdeconnect_share_config.desktop
+%{_kde5_services}/kdeconnectsendfile.desktop
+%{_kde5_servicetypes}/kdeconnect_plugin.desktop
+%{_kde5_autostart}/kdeconnectd.desktop
 %{_datadir}/dbus-1/services/org.kde.kdeconnect.service
+%{_qt5_plugindir}/kcm_kdeconnect.so
+%{_qt5_plugindir}/kdeconnect_pausemusic_config.so
+%{_qt5_plugindir}/kdeconnect_share_config.so
+%{_qt5_plugindir}/kdeconnectfiletiemaction.so
+%{_qt5_plugindir}/kdeconnect/kdeconnect_*.so
+%dir %{_kde5_datadir}/plasma/plasmoids/org.kde.kdeconnect/
+%{_kde5_datadir}/plasma/plasmoids/org.kde.kdeconnect/*
+%{_kde5_services}/plasma-kdeconnect.desktop
+%dir %{_kde5_qmldir}/org/kde/kdeconnect
+%{_kde5_qmldir}/org/kde/kdeconnect/*
+%{_kde5_services}/kdeconnect.protocol
+%{_qt5_plugindir}/kio_kdeconnect.so
 
 #----------------------------------------------------------------------------
 
@@ -109,10 +90,4 @@ Shared library for KDE Connect.
 %install
 %ninja_install -C build
 
-# Drop devel files for now because they are messed up
-rm -f %{buildroot}%{_kde_libdir}/*.so
-rm -rf %{buildroot}%{_kde_libdir}/cmake/
-rm -rf %{buildroot}%{_kde_includedir}/
-
-%find_lang kdeconnect-kcm kdeconnect-kded kdeconnect-plasmoid kdeconnect-kio plasma_applet_kdeconnect kdeconnect-plugins kdeconnect-filetiemaction kdeconnect-cli kdeconnect-core %{name}.lang
-
+%find_lang kdeconnect-cli kdeconnect-core kdeconnect-fileitemaction kdeconnect-kcm kdeconnect-kded kdeconnect-plugins kdeconnect-kio plasma_applet_org.kde.kdeconnect %{name}.lang
