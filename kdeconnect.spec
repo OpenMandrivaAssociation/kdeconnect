@@ -3,11 +3,14 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
 Version:	0.9
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
 Source0:	http://download.kde.org/unstable/kdeconnect/%{version}/src/%{oname}-%{version}g.tar.xz
+# (tpg) add firewalld rule
+# https://issues.openmandriva.org/show_bug.cgi?id=1491
+Source1:	kde-connect.xml
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5KCMUtils)
 BuildRequires:	cmake(KF5Declarative)
@@ -60,6 +63,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_kde5_qmldir}/org/kde/kdeconnect/*
 %{_kde5_services}/kdeconnect.protocol
 %{_qt5_plugindir}/kio_kdeconnect.so
+%{_prefix}/lib/firewalld/services/kde-connect.xml
 
 #----------------------------------------------------------------------------
 
@@ -115,5 +119,7 @@ Shared library for %{name}.
 
 %install
 %ninja_install -C build
+
+install -m644 -p -D %{SOURCE1} %{buildroot}%{_prefix}/lib/firewalld/services/kde-connect.xml
 
 %find_lang kdeconnect-cli kdeconnect-core kdeconnect-fileitemaction kdeconnect-kcm kdeconnect-kded kdeconnect-plugins kdeconnect-kio plasma_applet_org.kde.kdeconnect %{name}.lang
