@@ -111,7 +111,7 @@ Shared library for %{name}.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -qn %{oname}-%{version}g
+%setup -qn %{oname}-%{version}
 %cmake_kde5 -DEXPERIMENTALAPP_ENABLED=ON
 
 %build
