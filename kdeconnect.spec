@@ -13,6 +13,7 @@ Source0:	http://download.kde.org/unstable/kdeconnect/%{version}/src/%{oname}-%{v
 Source1:	kde-connect.xml
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5KCMUtils)
+BuildRequires:	cmake(KF5DocTools)
 BuildRequires:	cmake(KF5Declarative)
 BuildRequires:	cmake(KF5Notifications)
 BuildRequires:	cmake(KF5KIO)
@@ -54,7 +55,6 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_qt5_plugindir}/kcm_kdeconnect.so
 %{_qt5_plugindir}/kdeconnect_pausemusic_config.so
 %{_qt5_plugindir}/kdeconnect_share_config.so
-%{_qt5_plugindir}/kdeconnectfiletiemaction.so
 %{_qt5_plugindir}/kdeconnect/kdeconnect_*.so
 %{_qt5_plugindir}/kdeconnect_runcommand_config.so
 %{_qt5_plugindir}/kdeconnect_sendnotifications_config.so
