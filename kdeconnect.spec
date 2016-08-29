@@ -2,17 +2,18 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	0.9
-Release:	3
+Version:	1.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
-Source0:	http://download.kde.org/unstable/kdeconnect/%{version}/src/%{oname}-%{version}g.tar.xz
+Source0:	http://download.kde.org/unstable/kdeconnect/%{version}/src/%{oname}-%{version}.tar.xz
 # (tpg) add firewalld rule
 # https://issues.openmandriva.org/show_bug.cgi?id=1491
 Source1:	kde-connect.xml
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5KCMUtils)
+BuildRequires:	cmake(KF5DocTools)
 BuildRequires:	cmake(KF5Declarative)
 BuildRequires:	cmake(KF5Notifications)
 BuildRequires:	cmake(KF5KIO)
@@ -54,25 +55,32 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_qt5_plugindir}/kcm_kdeconnect.so
 %{_qt5_plugindir}/kdeconnect_pausemusic_config.so
 %{_qt5_plugindir}/kdeconnect_share_config.so
-%{_qt5_plugindir}/kdeconnectfiletiemaction.so
 %{_qt5_plugindir}/kdeconnect/kdeconnect_*.so
+%{_qt5_plugindir}/kdeconnect_runcommand_config.so
+%{_qt5_plugindir}/kdeconnect_sendnotifications_config.so
+%{_qt5_plugindir}/kdeconnectfileitemaction.so
 %dir %{_kde5_datadir}/plasma/plasmoids/org.kde.kdeconnect/
 %{_kde5_datadir}/plasma/plasmoids/org.kde.kdeconnect/*
 %{_kde5_services}/plasma-kdeconnect.desktop
+%{_kde5_services}/kdeconnect_runcommand_config.desktop
+%{_kde5_services}/kdeconnect_sendnotifications_config.desktop
 %dir %{_kde5_qmldir}/org/kde/kdeconnect
 %{_kde5_qmldir}/org/kde/kdeconnect/*
 %{_kde5_services}/kdeconnect.protocol
 %{_qt5_plugindir}/kio_kdeconnect.so
 %{_prefix}/lib/firewalld/services/kde-connect.xml
+%lang(en) %{_docdir}/HTML/en/kdeconnect-kde/index.cache.*
+%lang(en) %{_docdir}/HTML/en/kdeconnect-kde/index.docbook
 
 #----------------------------------------------------------------------------
 
-%define core_major 0
+%define core_major 1
 %define libcore %mklibname kdeconnectcore %{core_major}
 
 %package -n %{libcore}
 Summary:	Shared library for KDE Connect
 Group:		System/Libraries
+Obsoletes:	%{mklibname kdeconnectcore 0} < 1.0
 
 %description -n %{libcore}
 Shared library for KDE Connect.
@@ -82,12 +90,13 @@ Shared library for KDE Connect.
 
 #----------------------------------------------------------------------------
 
-%define interfaces_major 0
+%define interfaces_major 1
 %define libinterfaces %mklibname kdeconnectinterfaces %{interfaces_major}
 
 %package -n %{libinterfaces}
 Summary:	Shared library for KDE Connect
 Group:		System/Libraries
+Obsoletes:	%{mklibname kdeconnectinterfaces 0} < 1.0
 
 %description -n %{libinterfaces}
 Shared library for KDE Connect.
@@ -95,12 +104,13 @@ Shared library for KDE Connect.
 %files -n %{libinterfaces}
 %{_libdir}/libkdeconnectinterfaces.so.%{interfaces_major}*
 
-%define plugin_major 0
+%define plugin_major 1
 %define libplugin %mklibname kdeconnectpluginkcm %{plugin_major}
 
 %package -n %{libplugin}
 Summary:	Shared library for %{name}
 Group:		System/Libraries
+Obsoletes:	%{mklibname kdeconnectpluginkcm 0} < 1.0
 
 %description -n %{libplugin}
 Shared library for %{name}.
@@ -111,7 +121,7 @@ Shared library for %{name}.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -qn %{oname}-%{version}g
+%setup -qn %{oname}-%{version}
 %cmake_kde5 -DEXPERIMENTALAPP_ENABLED=ON
 
 %build
