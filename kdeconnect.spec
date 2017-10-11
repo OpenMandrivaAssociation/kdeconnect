@@ -2,7 +2,7 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	1.0.3
+Version:	1.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -38,11 +38,13 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %files -f %{name}.lang
 %{_kde5_bindir}/kcapp
 %{_kde5_bindir}/kdeconnect-cli
+%{_kde5_bindir}/kdeconnect-handler
+%{_kde5_bindir}/kdeconnect-indicator
 %{_kde5_applicationsdir}/*.desktop
 %{_kde5_iconsdir}/hicolor/*/apps/kdeconnect.*
-%{_kde5_iconsdir}/hicolor/*/status/laptop-*.*
-%{_kde5_iconsdir}/hicolor/*/status/smartphone-*.*
-%{_kde5_iconsdir}/hicolor/*/status/tablet-*.*
+%{_kde5_iconsdir}/hicolor/*/status/laptop*.*
+%{_kde5_iconsdir}/hicolor/*/status/smartphone*.*
+%{_kde5_iconsdir}/hicolor/*/status/tablet*.*
 %{_kde5_libexecdir}/kdeconnectd
 %{_datadir}/knotifications5/kdeconnect.notifyrc
 %{_kde5_services}/kcm_kdeconnect.desktop
@@ -70,8 +72,8 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_qt5_plugindir}/kio_kdeconnect.so
 %{_prefix}/lib/firewalld/services/kde-connect.xml
 %{_datadir}/metainfo/org.kde.kdeconnect.kcm.appdata.xml
-%lang(en) %{_docdir}/HTML/en/kdeconnect-kde/index.cache.*
-%lang(en) %{_docdir}/HTML/en/kdeconnect-kde/index.docbook
+%lang(en) %{_docdir}/HTML/en/kdeconnect/index.cache.*
+%lang(en) %{_docdir}/HTML/en/kdeconnect/index.docbook
 
 #----------------------------------------------------------------------------
 
@@ -133,4 +135,4 @@ Shared library for %{name}.
 
 install -m644 -p -D %{SOURCE1} %{buildroot}%{_prefix}/lib/firewalld/services/kde-connect.xml
 
-%find_lang kdeconnect-cli kdeconnect-core kdeconnect-fileitemaction kdeconnect-kcm kdeconnect-kded kdeconnect-plugins kdeconnect-kio plasma_applet_org.kde.kdeconnect %{name}.lang
+%find_lang kdeconnect-cli kdeconnect-core kdeconnect-fileitemaction kdeconnect-kcm kdeconnect-kded kdeconnect-plugins kdeconnect-kio kdeconnect-urlhandler plasma_applet_org.kde.kdeconnect %{name}.lang
