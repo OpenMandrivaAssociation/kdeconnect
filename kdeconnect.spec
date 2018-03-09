@@ -3,7 +3,7 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
 Version:	1.2.1
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
@@ -136,3 +136,10 @@ Shared library for %{name}.
 install -m644 -p -D %{SOURCE1} %{buildroot}%{_prefix}/lib/firewalld/services/kde-connect.xml
 
 %find_lang kdeconnect-cli kdeconnect-core kdeconnect-fileitemaction kdeconnect-kcm kdeconnect-kded kdeconnect-plugins kdeconnect-kio kdeconnect-urlhandler plasma_applet_org.kde.kdeconnect %{name}.lang
+
+%post
+# (tpg) reload firewalld
+if [ -x /usr/bin/firewall-cmd ]; then
+    /usr/bin/firewall-cmd --permanent --add-service kde-connect 2&>1 ||:
+    /usr/bin/firewall-cmd --reload 2&>1 ||:
+fi
