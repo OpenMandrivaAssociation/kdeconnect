@@ -30,6 +30,7 @@ BuildRequires:	pkgconfig(Qt5Quick)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	pkgconfig(qca2-qt5)
 Requires:	sshfs
+Requires:	qca-plugin-openssl-%{_lib}
 
 %description
 KDE Connect is a module to connect KDE with your smartphone.
