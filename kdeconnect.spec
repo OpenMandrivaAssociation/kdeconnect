@@ -74,6 +74,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_qt5_plugindir}/kio_kdeconnect.so
 %{_prefix}/lib/firewalld/services/kde-connect.xml
 %{_datadir}/metainfo/org.kde.kdeconnect.kcm.appdata.xml
+%{_datadir}/nautilus-python/extensions/kdeconnect-share.py
 %lang(en) %{_docdir}/HTML/en/kdeconnect/index.cache.*
 %lang(en) %{_docdir}/HTML/en/kdeconnect/index.docbook
 
