@@ -2,12 +2,12 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	1.2.1
-Release:	2
+Version:	1.3.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
-Source0:	http://download.kde.org/unstable/kdeconnect/%{version}/src/%{oname}-v%{version}.tar.xz
+Source0:	http://download.kde.org/unstable/kdeconnect/%{version}/src/%{oname}-%{version}.tar.xz
 # (tpg) add firewalld rule
 # https://issues.openmandriva.org/show_bug.cgi?id=1491
 Source1:	kde-connect.xml
@@ -31,6 +31,7 @@ BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	pkgconfig(qca2-qt5)
 Requires:	sshfs
 Requires:	qca-plugin-openssl-%{_lib}
+Requires(post):	/bin/sh
 
 %description
 KDE Connect is a module to connect KDE with your smartphone.
@@ -125,7 +126,7 @@ Shared library for %{name}.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -qn %{oname}-v%{version}
+%setup -qn %{oname}-%{version}
 %cmake_kde5 -DEXPERIMENTALAPP_ENABLED=ON
 
 %build
