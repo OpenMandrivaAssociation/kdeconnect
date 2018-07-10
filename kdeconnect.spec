@@ -2,7 +2,7 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	1.3.0
+Version:	1.3.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -75,6 +75,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_prefix}/lib/firewalld/services/kde-connect.xml
 %{_datadir}/metainfo/org.kde.kdeconnect.kcm.appdata.xml
 %{_datadir}/nautilus-python/extensions/kdeconnect-share.py
+%{_datadir}/nautilus-python/extensions/__pycache__
 %lang(en) %{_docdir}/HTML/en/kdeconnect/index.cache.*
 %lang(en) %{_docdir}/HTML/en/kdeconnect/index.docbook
 
