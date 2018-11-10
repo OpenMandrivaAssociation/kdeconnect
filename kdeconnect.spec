@@ -70,6 +70,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_kde5_services}/kdeconnect_sendnotifications_config.desktop
 %dir %{_kde5_qmldir}/org/kde/kdeconnect
 %{_kde5_qmldir}/org/kde/kdeconnect/*
+%{_qt5_plugindir}//kf5/kio/kdeconnect.so
 %{_prefix}/lib/firewalld/services/kde-connect.xml
 %{_datadir}/metainfo/org.kde.kdeconnect.kcm.appdata.xml
 %{_datadir}/nautilus-python/extensions/kdeconnect-share.py
