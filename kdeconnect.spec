@@ -3,7 +3,7 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
 Version:	1.3.3
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
@@ -30,7 +30,7 @@ BuildRequires:	pkgconfig(Qt5Quick)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	pkgconfig(qca2-qt5)
 Requires:	sshfs
-Requires:	qca-plugin-openssl-%{_lib}
+Requires:	%{_lib}qca2-plugin-openssl
 Requires(post):	/bin/sh
 
 %description
