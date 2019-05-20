@@ -3,11 +3,11 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
 Version:	1.3.4
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
-Source0:	http://download.kde.org/unstable/kdeconnect/%{version}/src/%{oname}-%{version}.tar.xz
+Source0:	http://download.kde.org/stable/kdeconnect/%{version}/src/%{oname}-%{version}.tar.xz
 # (tpg) add firewalld rule
 # https://issues.openmandriva.org/show_bug.cgi?id=1491
 Source1:	kde-connect.xml
