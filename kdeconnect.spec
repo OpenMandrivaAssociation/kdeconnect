@@ -2,12 +2,12 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	1.3.4
-Release:	3
+Version:	1.3.5
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
-Source0:	http://download.kde.org/stable/kdeconnect/%{version}/src/%{oname}-%{version}.tar.xz
+Source0:	http://download.kde.org/stable/kdeconnect/%{version}/%{oname}-%{version}.tar.xz
 # (tpg) add firewalld rule
 # https://issues.openmandriva.org/show_bug.cgi?id=1491
 Source1:	kde-connect.xml
@@ -54,7 +54,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_kde5_services}/kdeconnect_share_config.desktop
 %{_kde5_services}/kdeconnectsendfile.desktop
 %{_kde5_servicetypes}/kdeconnect_plugin.desktop
-%{_kde5_autostart}/kdeconnectd.desktop
+%{_sysconfdir}/xdg/autostart/org.kde.kdeconnect.daemon.desktop
 %{_datadir}/dbus-1/services/org.kde.kdeconnect.service
 %{_qt5_plugindir}/kcm_kdeconnect.so
 %{_qt5_plugindir}/kdeconnect_pausemusic_config.so
@@ -138,7 +138,7 @@ Shared library for %{name}.
 
 install -m644 -p -D %{SOURCE1} %{buildroot}%{_prefix}/lib/firewalld/services/kde-connect.xml
 
-%find_lang kdeconnect-cli kdeconnect-core kdeconnect-fileitemaction kdeconnect-kcm kdeconnect-kded kdeconnect-plugins kdeconnect-kio kdeconnect-urlhandler plasma_applet_org.kde.kdeconnect %{name}.lang
+%find_lang kdeconnect-cli kdeconnect-core kdeconnect-fileitemaction kdeconnect-kcm kdeconnect-kded kdeconnect-plugins kdeconnect-kio kdeconnect-urlhandler plasma_applet_org.kde.kdeconnect kdeconnect-nautilus-extension %{name}.lang
 
 %post
 # (tpg) reload firewalld
