@@ -3,7 +3,7 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
 Version:	1.3.5
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
