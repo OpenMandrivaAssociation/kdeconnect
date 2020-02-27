@@ -2,8 +2,8 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	1.3.5
-Release:	2
+Version:	1.4
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
@@ -38,10 +38,14 @@ KDE Connect is a module to connect KDE with your smartphone.
 You need to install KdeConnect.apk on your smartphone to make it work.
 
 %files -f %{name}.lang
-%{_kde5_bindir}/kcapp
-%{_kde5_bindir}/kdeconnect-cli
-%{_kde5_bindir}/kdeconnect-handler
-%{_kde5_bindir}/kdeconnect-indicator
+%{_bindir}/kdeconnect-app
+%{_bindir}/kdeconnect-cli
+%{_bindir}/kdeconnect-handler
+%{_bindir}/kdeconnect-indicator
+%{_bindir}/kdeconnect-settings
+%{_bindir}/kdeconnect-sms
+%{_libdir}/libkdeconnectsmshelper.so.1*
+%{_libdir}/qt5/plugins/kf5/kfileitemaction/*.so
 %{_kde5_applicationsdir}/*.desktop
 %{_kde5_iconsdir}/hicolor/*/apps/kdeconnect.*
 %{_kde5_iconsdir}/hicolor/*/status/laptop*.*
@@ -50,19 +54,15 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_kde5_libexecdir}/kdeconnectd
 %{_datadir}/knotifications5/kdeconnect.notifyrc
 %{_kde5_services}/kcm_kdeconnect.desktop
-%{_kde5_services}/kdeconnect_pausemusic_config.desktop
 %{_kde5_services}/kdeconnect_share_config.desktop
-%{_kde5_services}/kdeconnectsendfile.desktop
 %{_kde5_servicetypes}/kdeconnect_plugin.desktop
 %{_sysconfdir}/xdg/autostart/org.kde.kdeconnect.daemon.desktop
 %{_datadir}/dbus-1/services/org.kde.kdeconnect.service
 %{_qt5_plugindir}/kcm_kdeconnect.so
-%{_qt5_plugindir}/kdeconnect_pausemusic_config.so
 %{_qt5_plugindir}/kdeconnect_share_config.so
 %{_qt5_plugindir}/kdeconnect/kdeconnect_*.so
 %{_qt5_plugindir}/kdeconnect_runcommand_config.so
 %{_qt5_plugindir}/kdeconnect_sendnotifications_config.so
-%{_qt5_plugindir}/kdeconnectfileitemaction.so
 %dir %{_kde5_datadir}/plasma/plasmoids/org.kde.kdeconnect/
 %{_kde5_datadir}/plasma/plasmoids/org.kde.kdeconnect/*
 %{_kde5_services}/plasma-kdeconnect.desktop
@@ -74,9 +74,12 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_prefix}/lib/firewalld/services/kde-connect.xml
 %{_datadir}/metainfo/org.kde.kdeconnect.kcm.appdata.xml
 %{_datadir}/nautilus-python/extensions/kdeconnect-share.py
-%{_datadir}/nautilus-python/extensions/__pycache__
 %lang(en) %{_docdir}/HTML/en/kdeconnect/index.cache.*
 %lang(en) %{_docdir}/HTML/en/kdeconnect/index.docbook
+%{_datadir}/Thunar/sendto/kdeconnect-thunar.desktop
+%{_datadir}/contractor/kdeconnect.contract
+%{_datadir}/icons/*/*/*/*
+%{_datadir}/zsh/site-functions/_kdeconnect
 
 #----------------------------------------------------------------------------
 
