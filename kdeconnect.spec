@@ -1,13 +1,14 @@
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 %define oname kdeconnect-kde
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	1.4
+Version:	20.04.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
-Source0:	http://download.kde.org/stable/kdeconnect/%{version}/%{oname}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{oname}-%{version}.tar.xz
 # (tpg) add firewalld rule
 # https://issues.openmandriva.org/show_bug.cgi?id=1491
 Source1:	kde-connect.xml
@@ -22,6 +23,7 @@ BuildRequires:	cmake(KF5ConfigWidgets)
 BuildRequires:	cmake(KF5DBusAddons)
 BuildRequires:	cmake(KF5IconThemes)
 BuildRequires:	cmake(KF5Wayland)
+BuildRequires:	cmake(KF5PulseAudioQt)
 BuildRequires:	pkgconfig(libfakekey)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xtst)
@@ -63,11 +65,15 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_qt5_plugindir}/kdeconnect/kdeconnect_*.so
 %{_qt5_plugindir}/kdeconnect_runcommand_config.so
 %{_qt5_plugindir}/kdeconnect_sendnotifications_config.so
+%{_qt5_plugindir}/kdeconnect_findthisdevice_config.so
+%{_qt5_plugindir}/kdeconnect_pausemusic_config.so
 %dir %{_kde5_datadir}/plasma/plasmoids/org.kde.kdeconnect/
 %{_kde5_datadir}/plasma/plasmoids/org.kde.kdeconnect/*
 %{_kde5_services}/plasma-kdeconnect.desktop
 %{_kde5_services}/kdeconnect_runcommand_config.desktop
 %{_kde5_services}/kdeconnect_sendnotifications_config.desktop
+%{_kde5_services}/kdeconnect_findthisdevice_config.desktop
+%{_kde5_services}/kdeconnect_pausemusic_config.desktop
 %dir %{_kde5_qmldir}/org/kde/kdeconnect
 %{_kde5_qmldir}/org/kde/kdeconnect/*
 %{_qt5_plugindir}//kf5/kio/kdeconnect.so
@@ -141,7 +147,7 @@ Shared library for %{name}.
 
 install -m644 -p -D %{SOURCE1} %{buildroot}%{_prefix}/lib/firewalld/services/kde-connect.xml
 
-%find_lang kdeconnect-cli kdeconnect-core kdeconnect-fileitemaction kdeconnect-kcm kdeconnect-kded kdeconnect-plugins kdeconnect-kio kdeconnect-urlhandler plasma_applet_org.kde.kdeconnect kdeconnect-nautilus-extension %{name}.lang
+%find_lang kdeconnect kdeconnect-cli kdeconnect-core kdeconnect-fileitemaction kdeconnect-kcm kdeconnect-kded kdeconnect-plugins kdeconnect-kio kdeconnect-urlhandler plasma_applet_org.kde.kdeconnect kdeconnect-nautilus-extension kdeconnect-sms kdeconnect-app kdeconnect-indicator kdeconnect-interfaces kdeconnect-settings %{name}.lang --with-html
 
 %post
 # (tpg) reload firewalld
