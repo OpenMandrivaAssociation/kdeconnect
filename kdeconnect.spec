@@ -14,11 +14,13 @@ Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{onam
 Source1:	kde-connect.xml
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5KCMUtils)
+BuildRequires:  cmake(KF5People)
 BuildRequires:  cmake(KF5PeopleVCard)
 BuildRequires:	cmake(KF5DocTools)
 BuildRequires:	cmake(KF5Declarative)
 BuildRequires:	cmake(KF5Notifications)
 BuildRequires:	cmake(KF5KIO)
+BuildRequires:  cmake(KF5Kirigami2)
 BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(KF5ConfigWidgets)
 BuildRequires:	cmake(KF5DBusAddons)
