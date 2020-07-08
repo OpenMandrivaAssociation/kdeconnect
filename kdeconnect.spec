@@ -3,7 +3,7 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	20.04.0
+Version:	20.04.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -14,6 +14,7 @@ Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{onam
 Source1:	kde-connect.xml
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5KCMUtils)
+BuildRequires:  cmake(KF5PeopleVCard)
 BuildRequires:	cmake(KF5DocTools)
 BuildRequires:	cmake(KF5Declarative)
 BuildRequires:	cmake(KF5Notifications)
@@ -27,6 +28,7 @@ BuildRequires:	cmake(KF5PulseAudioQt)
 BuildRequires:	pkgconfig(libfakekey)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xtst)
+BuildRequires:  pkgconfig(Qt5Multimedia)
 BuildRequires:	pkgconfig(Qt5X11Extras)
 BuildRequires:	pkgconfig(Qt5Quick)
 BuildRequires:	pkgconfig(Qt5Test)
