@@ -90,6 +90,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_datadir}/contractor/kdeconnect.contract
 %{_datadir}/icons/*/*/*/*
 %{_datadir}/zsh/site-functions/_kdeconnect
+%{_datadir}/doc/HTML/*/kdeconnect-kde/index*
 
 #----------------------------------------------------------------------------
 
