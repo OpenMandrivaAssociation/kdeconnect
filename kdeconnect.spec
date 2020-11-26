@@ -3,7 +3,7 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	20.08.1
+Version:	20.11.80
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -50,7 +50,6 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_bindir}/kdeconnect-indicator
 %{_bindir}/kdeconnect-settings
 %{_bindir}/kdeconnect-sms
-%{_libdir}/libkdeconnectsmshelper.so.1*
 %{_libdir}/qt5/plugins/kf5/kfileitemaction/*.so
 %{_kde5_applicationsdir}/*.desktop
 %{_kde5_iconsdir}/hicolor/*/apps/kdeconnect.*
@@ -83,6 +82,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_qt5_plugindir}//kf5/kio/kdeconnect.so
 %{_prefix}/lib/firewalld/services/kde-connect.xml
 %{_datadir}/metainfo/org.kde.kdeconnect.kcm.appdata.xml
+%{_datadir}/kdeconnect
 %{_datadir}/nautilus-python/extensions/kdeconnect-share.py
 %{_datadir}/qlogging-categories5/kdeconnect-kde.categories
 %lang(en) %{_docdir}/HTML/en/kdeconnect/index.cache.*
@@ -96,13 +96,14 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 
 #----------------------------------------------------------------------------
 
-%define core_major 1
+%define core_major 20
 %define libcore %mklibname kdeconnectcore %{core_major}
 
 %package -n %{libcore}
 Summary:	Shared library for KDE Connect
 Group:		System/Libraries
 Obsoletes:	%{mklibname kdeconnectcore 0} < 1.0
+Obsoletes:	%{mklibname kdeconnectcore 1} < 20.0
 
 %description -n %{libcore}
 Shared library for KDE Connect.
@@ -112,13 +113,14 @@ Shared library for KDE Connect.
 
 #----------------------------------------------------------------------------
 
-%define interfaces_major 1
+%define interfaces_major 20
 %define libinterfaces %mklibname kdeconnectinterfaces %{interfaces_major}
 
 %package -n %{libinterfaces}
 Summary:	Shared library for KDE Connect
 Group:		System/Libraries
 Obsoletes:	%{mklibname kdeconnectinterfaces 0} < 1.0
+Obsoletes:	%{mklibname kdeconnectinterfaces 1} < 20.0
 
 %description -n %{libinterfaces}
 Shared library for KDE Connect.
@@ -126,13 +128,14 @@ Shared library for KDE Connect.
 %files -n %{libinterfaces}
 %{_libdir}/libkdeconnectinterfaces.so.%{interfaces_major}*
 
-%define plugin_major 1
+%define plugin_major 20
 %define libplugin %mklibname kdeconnectpluginkcm %{plugin_major}
 
 %package -n %{libplugin}
 Summary:	Shared library for %{name}
 Group:		System/Libraries
 Obsoletes:	%{mklibname kdeconnectpluginkcm 0} < 1.0
+Obsoletes:	%{mklibname kdeconnectpluginkcm 1} < 20.0
 
 %description -n %{libplugin}
 Shared library for %{name}.
