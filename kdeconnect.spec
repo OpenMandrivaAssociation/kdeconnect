@@ -1,9 +1,11 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 %define oname kdeconnect-kde
+# Workaround for clang 12 causing a link time error
+%define _disable_lto 1
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	20.12.2
+Version:	20.12.3
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
