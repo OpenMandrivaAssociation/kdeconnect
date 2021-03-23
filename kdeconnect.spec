@@ -3,7 +3,7 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	20.12.3
+Version:	21.03.80
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -60,7 +60,6 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_datadir}/knotifications5/kdeconnect.notifyrc
 %{_kde5_services}/kcm_kdeconnect.desktop
 %{_kde5_services}/kdeconnect_share_config.desktop
-%{_kde5_servicetypes}/kdeconnect_plugin.desktop
 %{_sysconfdir}/xdg/autostart/org.kde.kdeconnect.daemon.desktop
 %{_datadir}/dbus-1/services/org.kde.kdeconnect.service
 %{_qt5_plugindir}/kcm_kdeconnect.so
@@ -96,7 +95,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 
 #----------------------------------------------------------------------------
 
-%define core_major 20
+%define core_major %(echo %{version}|cut -d. -f1)
 %define libcore %mklibname kdeconnectcore %{core_major}
 
 %package -n %{libcore}
@@ -113,7 +112,7 @@ Shared library for KDE Connect.
 
 #----------------------------------------------------------------------------
 
-%define interfaces_major 20
+%define interfaces_major %(echo %{version}|cut -d. -f1)
 %define libinterfaces %mklibname kdeconnectinterfaces %{interfaces_major}
 
 %package -n %{libinterfaces}
@@ -128,7 +127,7 @@ Shared library for KDE Connect.
 %files -n %{libinterfaces}
 %{_libdir}/libkdeconnectinterfaces.so.%{interfaces_major}*
 
-%define plugin_major 20
+%define plugin_major %(echo %{version}|cut -d. -f1)
 %define libplugin %mklibname kdeconnectpluginkcm %{plugin_major}
 
 %package -n %{libplugin}
