@@ -33,6 +33,7 @@ BuildRequires:	pkgconfig(xtst)
 BuildRequires:  pkgconfig(Qt5Multimedia)
 BuildRequires:	pkgconfig(Qt5X11Extras)
 BuildRequires:	pkgconfig(Qt5Quick)
+BuildRequires:	cmake(Qt5QuickControls2)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	pkgconfig(qca2-qt5)
 Requires:	sshfs
