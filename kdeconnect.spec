@@ -4,7 +4,7 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
 Version:	21.03.80
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
@@ -39,6 +39,22 @@ BuildRequires:	pkgconfig(qca2-qt5)
 Requires:	sshfs
 Requires:	%{_lib}qca2-plugin-openssl
 Requires(post):	/bin/sh
+# There is no point in separate libpackages for internal libraries.
+# They can't be used outside of kdeconnect (no shipped headers or
+# *.so files).
+# Get rid of them.
+Obsoletes:	%{mklibname kdeconnectcore 0}
+Obsoletes:	%{mklibname kdeconnectcore 1}
+Obsoletes:	%{mklibname kdeconnectcore 20}
+Obsoletes:	%{mklibname kdeconnectcore 21}
+Obsoletes:	%{mklibname kdeconnectinterfaces 0}
+Obsoletes:	%{mklibname kdeconnectinterfaces 1}
+Obsoletes:	%{mklibname kdeconnectinterfaces 20}
+Obsoletes:	%{mklibname kdeconnectinterfaces 21}
+Obsoletes:	%{mklibname kdeconnectpluginkcm 0}
+Obsoletes:	%{mklibname kdeconnectpluginkcm 1}
+Obsoletes:	%{mklibname kdeconnectpluginkcm 20}
+Obsoletes:	%{mklibname kdeconnectpluginkcm 21}
 
 %description
 KDE Connect is a module to connect KDE with your smartphone.
@@ -52,6 +68,9 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_bindir}/kdeconnect-settings
 %{_bindir}/kdeconnect-sms
 %{_libdir}/qt5/plugins/kf5/kfileitemaction/*.so
+%{_libdir}/libkdeconnectcore.so.*
+%{_libdir}/libkdeconnectinterfaces.so.*
+%{_libdir}/libkdeconnectpluginkcm.so.*
 %{_kde5_applicationsdir}/*.desktop
 %{_kde5_iconsdir}/hicolor/*/apps/kdeconnect.*
 %{_kde5_iconsdir}/hicolor/*/status/laptop*.*
@@ -93,55 +112,6 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_datadir}/icons/*/*/*/*
 %{_datadir}/zsh/site-functions/_kdeconnect
 %{_datadir}/doc/HTML/*/kdeconnect-kde/index*
-
-#----------------------------------------------------------------------------
-
-%define core_major %(echo %{version}|cut -d. -f1)
-%define libcore %mklibname kdeconnectcore %{core_major}
-
-%package -n %{libcore}
-Summary:	Shared library for KDE Connect
-Group:		System/Libraries
-Obsoletes:	%{mklibname kdeconnectcore 0} < 1.0
-Obsoletes:	%{mklibname kdeconnectcore 1} < 20.0
-
-%description -n %{libcore}
-Shared library for KDE Connect.
-
-%files -n %{libcore}
-%{_libdir}/libkdeconnectcore.so.%{core_major}*
-
-#----------------------------------------------------------------------------
-
-%define interfaces_major %(echo %{version}|cut -d. -f1)
-%define libinterfaces %mklibname kdeconnectinterfaces %{interfaces_major}
-
-%package -n %{libinterfaces}
-Summary:	Shared library for KDE Connect
-Group:		System/Libraries
-Obsoletes:	%{mklibname kdeconnectinterfaces 0} < 1.0
-Obsoletes:	%{mklibname kdeconnectinterfaces 1} < 20.0
-
-%description -n %{libinterfaces}
-Shared library for KDE Connect.
-
-%files -n %{libinterfaces}
-%{_libdir}/libkdeconnectinterfaces.so.%{interfaces_major}*
-
-%define plugin_major %(echo %{version}|cut -d. -f1)
-%define libplugin %mklibname kdeconnectpluginkcm %{plugin_major}
-
-%package -n %{libplugin}
-Summary:	Shared library for %{name}
-Group:		System/Libraries
-Obsoletes:	%{mklibname kdeconnectpluginkcm 0} < 1.0
-Obsoletes:	%{mklibname kdeconnectpluginkcm 1} < 20.0
-
-%description -n %{libplugin}
-Shared library for %{name}.
-
-%files -n %{libplugin}
-%{_kde5_libdir}/libkdeconnectpluginkcm.so.%{plugin_major}*
 
 #----------------------------------------------------------------------------
 
