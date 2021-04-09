@@ -3,8 +3,8 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	21.03.80
-Release:	2
+Version:	21.03.90
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
