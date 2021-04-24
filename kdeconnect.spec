@@ -4,7 +4,7 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
 Version:	21.04.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
@@ -60,6 +60,29 @@ Obsoletes:	%{mklibname kdeconnectpluginkcm 21}
 KDE Connect is a module to connect KDE with your smartphone.
 You need to install KdeConnect.apk on your smartphone to make it work.
 
+%package nautilus
+Summary:	KDE Connect integration for Nautilus
+Supplements:	nautilus
+Requires:	%{name} = %{EVRD}
+
+%description nautilus
+KDE Connect integration for Nautilus
+
+%package thunar
+Summary:	KDE Connect integration for Thunar
+Supplements:	thunar
+Requires:	%{name} = %{EVRD}
+
+%description thunar
+KDE Connect integration for Thunar
+
+%package deepin
+Summary:	KDE Connect integration for the deepin file manager
+Requires:	%{name} = %{EVRD}
+
+%description deepin
+KDE Connect integration for the deepin file manager
+
 %files -f %{name}.lang
 %{_bindir}/kdeconnect-app
 %{_bindir}/kdeconnect-cli
@@ -72,10 +95,10 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_libdir}/libkdeconnectinterfaces.so.*
 %{_libdir}/libkdeconnectpluginkcm.so.*
 %{_kde5_applicationsdir}/*.desktop
-%{_kde5_iconsdir}/hicolor/*/apps/kdeconnect.*
-%{_kde5_iconsdir}/hicolor/*/status/laptop*.*
-%{_kde5_iconsdir}/hicolor/*/status/smartphone*.*
-%{_kde5_iconsdir}/hicolor/*/status/tablet*.*
+#{_kde5_iconsdir}/hicolor/*/apps/kdeconnect.*
+#{_kde5_iconsdir}/hicolor/*/status/laptop*.*
+#{_kde5_iconsdir}/hicolor/*/status/smartphone*.*
+#{_kde5_iconsdir}/hicolor/*/status/tablet*.*
 %{_kde5_libexecdir}/kdeconnectd
 %{_datadir}/knotifications5/kdeconnect.notifyrc
 %{_kde5_services}/kcm_kdeconnect.desktop
@@ -102,16 +125,22 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 %{_prefix}/lib/firewalld/services/kde-connect.xml
 %{_datadir}/metainfo/org.kde.kdeconnect.kcm.appdata.xml
 %{_datadir}/kdeconnect
-%{_datadir}/nautilus-python/extensions/kdeconnect-share.py
 %{_datadir}/qlogging-categories5/kdeconnect-kde.categories
 %lang(en) %{_docdir}/HTML/en/kdeconnect/index.cache.*
 %lang(en) %{_docdir}/HTML/en/kdeconnect/index.docbook
-%{_datadir}/Thunar/sendto/kdeconnect-thunar.desktop
-%{_datadir}/deepin/dde-file-manager/oem-menuextensions/kdeconnect-dde.desktop
 %{_datadir}/contractor/kdeconnect.contract
 %{_datadir}/icons/*/*/*/*
 %{_datadir}/zsh/site-functions/_kdeconnect
 %{_datadir}/doc/HTML/*/kdeconnect-kde/index*
+
+%files nautilus -f kdeconnect-nautilus-extension.lang
+%{_datadir}/nautilus-python/extensions/kdeconnect-share.py
+
+%files thunar
+%{_datadir}/Thunar/sendto/kdeconnect-thunar.desktop
+
+%files deepin
+%{_datadir}/deepin/dde-file-manager/oem-menuextensions/kdeconnect-dde.desktop
 
 #----------------------------------------------------------------------------
 
@@ -127,7 +156,8 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 
 install -m644 -p -D %{SOURCE1} %{buildroot}%{_prefix}/lib/firewalld/services/kde-connect.xml
 
-%find_lang kdeconnect kdeconnect-cli kdeconnect-core kdeconnect-fileitemaction kdeconnect-kcm kdeconnect-kded kdeconnect-plugins kdeconnect-kio kdeconnect-urlhandler plasma_applet_org.kde.kdeconnect kdeconnect-nautilus-extension kdeconnect-sms kdeconnect-app kdeconnect-indicator kdeconnect-interfaces kdeconnect-settings %{name}.lang --with-html
+%find_lang kdeconnect kdeconnect-cli kdeconnect-core kdeconnect-fileitemaction kdeconnect-kcm kdeconnect-kded kdeconnect-plugins kdeconnect-kio kdeconnect-urlhandler plasma_applet_org.kde.kdeconnect kdeconnect-sms kdeconnect-app kdeconnect-indicator kdeconnect-interfaces kdeconnect-settings %{name}.lang --with-html
+%find_lang kdeconnect-nautilus-extension --with-html
 
 %post
 # (tpg) reload firewalld
