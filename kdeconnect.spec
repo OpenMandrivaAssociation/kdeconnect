@@ -3,7 +3,7 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	21.04.2
+Version:	21.07.90
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -27,6 +27,7 @@ BuildRequires:	cmake(KF5DBusAddons)
 BuildRequires:	cmake(KF5IconThemes)
 BuildRequires:	cmake(KF5Wayland)
 BuildRequires:	cmake(KF5PulseAudioQt)
+BuildRequires:	cmake(KF5QQC2DesktopStyle)
 BuildRequires:	pkgconfig(libfakekey)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xtst)
