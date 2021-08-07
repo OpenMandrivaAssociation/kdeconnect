@@ -37,6 +37,8 @@ BuildRequires:	pkgconfig(Qt5Quick)
 BuildRequires:	cmake(Qt5QuickControls2)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	pkgconfig(qca2-qt5)
+BuildRequires:	pkgconfig(wayland-client)
+BuildRequires:	pkgconfig(wayland-scanner)
 Requires:	sshfs
 Requires:	%{_lib}qca2-plugin-openssl
 Requires(post):	/bin/sh
