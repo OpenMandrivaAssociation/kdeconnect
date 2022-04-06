@@ -3,7 +3,7 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	21.12.2
+Version:	22.03.80
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -93,49 +93,32 @@ KDE Connect integration for the deepin file manager
 %{_bindir}/kdeconnect-indicator
 %{_bindir}/kdeconnect-settings
 %{_bindir}/kdeconnect-sms
-%{_libdir}/qt5/plugins/kf5/kfileitemaction/*.so
 %{_libdir}/libkdeconnectcore.so.*
 %{_libdir}/libkdeconnectinterfaces.so.*
 %{_libdir}/libkdeconnectpluginkcm.so.*
 %{_datadir}/metainfo/org.kde.kdeconnect.appdata.xml
 %{_kde5_applicationsdir}/*.desktop
-#{_kde5_iconsdir}/hicolor/*/apps/kdeconnect.*
-#{_kde5_iconsdir}/hicolor/*/status/laptop*.*
-#{_kde5_iconsdir}/hicolor/*/status/smartphone*.*
-#{_kde5_iconsdir}/hicolor/*/status/tablet*.*
 %{_kde5_libexecdir}/kdeconnectd
 %{_datadir}/knotifications5/kdeconnect.notifyrc
-%{_kde5_services}/kcm_kdeconnect.desktop
-%{_kde5_services}/kdeconnect_share_config.desktop
 %{_sysconfdir}/xdg/autostart/org.kde.kdeconnect.daemon.desktop
 %{_datadir}/dbus-1/services/org.kde.kdeconnect.service
 %{_qt5_plugindir}/kcm_kdeconnect.so
-%{_qt5_plugindir}/kdeconnect_share_config.so
-%{_qt5_plugindir}/kdeconnect/kdeconnect_*.so
-%{_qt5_plugindir}/kdeconnect_runcommand_config.so
-%{_qt5_plugindir}/kdeconnect_sendnotifications_config.so
-%{_qt5_plugindir}/kdeconnect_findthisdevice_config.so
-%{_qt5_plugindir}/kdeconnect_pausemusic_config.so
+%{_qt5_plugindir}/kdeconnect
+%{_qt5_plugindir}/kf5/kio/*.so
+%{_qt5_plugindir}/kf5/kfileitemaction/*.so
 %dir %{_kde5_datadir}/plasma/plasmoids/org.kde.kdeconnect/
 %{_kde5_datadir}/plasma/plasmoids/org.kde.kdeconnect/*
-%{_kde5_services}/plasma-kdeconnect.desktop
-%{_kde5_services}/kdeconnect_runcommand_config.desktop
-%{_kde5_services}/kdeconnect_sendnotifications_config.desktop
-%{_kde5_services}/kdeconnect_findthisdevice_config.desktop
-%{_kde5_services}/kdeconnect_pausemusic_config.desktop
 %dir %{_kde5_qmldir}/org/kde/kdeconnect
 %{_kde5_qmldir}/org/kde/kdeconnect/*
-%{_qt5_plugindir}//kf5/kio/kdeconnect.so
 %{_prefix}/lib/firewalld/services/kde-connect.xml
-%{_datadir}/metainfo/org.kde.kdeconnect.kcm.appdata.xml
 %{_datadir}/kdeconnect
 %{_datadir}/qlogging-categories5/kdeconnect-kde.categories
-%lang(en) %{_docdir}/HTML/en/kdeconnect/index.cache.*
-%lang(en) %{_docdir}/HTML/en/kdeconnect/index.docbook
 %{_datadir}/contractor/kdeconnect.contract
 %{_datadir}/icons/*/*/*/*
 %{_datadir}/zsh/site-functions/_kdeconnect
-%{_datadir}/doc/HTML/*/kdeconnect-kde/index*
+%{_datadir}/kservices5/kcm_kdeconnect.desktop
+%{_datadir}/kservices5/plasma-kdeconnect.desktop
+%{_datadir}/metainfo/org.kde.kdeconnect.metainfo.xml
 
 %files nautilus -f kdeconnect-nautilus-extension.lang
 %{_datadir}/nautilus-python/extensions/kdeconnect-share.py
@@ -160,7 +143,7 @@ KDE Connect integration for the deepin file manager
 
 install -m644 -p -D %{SOURCE1} %{buildroot}%{_prefix}/lib/firewalld/services/kde-connect.xml
 
-%find_lang kdeconnect kdeconnect-cli kdeconnect-core kdeconnect-fileitemaction kdeconnect-kcm kdeconnect-kded kdeconnect-plugins kdeconnect-kio kdeconnect-urlhandler plasma_applet_org.kde.kdeconnect kdeconnect-sms kdeconnect-app kdeconnect-indicator kdeconnect-interfaces kdeconnect-settings %{name}.lang --with-html
+%find_lang kdeconnect kdeconnect-cli kdeconnect-core kdeconnect-fileitemaction kdeconnect-kcm kdeconnect-kde kdeconnect-kded kdeconnect-plugins kdeconnect-kio kdeconnect-urlhandler plasma_applet_org.kde.kdeconnect kdeconnect-sms kdeconnect-app kdeconnect-indicator kdeconnect-interfaces kdeconnect-settings %{name}.lang --with-html
 %find_lang kdeconnect-nautilus-extension --with-html
 
 %post
