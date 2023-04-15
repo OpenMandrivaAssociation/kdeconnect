@@ -3,8 +3,8 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	22.12.3
-Release:	2
+Version:	23.03.90
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
@@ -103,7 +103,7 @@ KDE Connect integration for the deepin file manager
 %{_datadir}/knotifications5/kdeconnect.notifyrc
 %{_sysconfdir}/xdg/autostart/org.kde.kdeconnect.daemon.desktop
 %{_datadir}/dbus-1/services/org.kde.kdeconnect.service
-%{_qt5_plugindir}/kcm_kdeconnect.so
+%{_qt5_plugindir}/plasma/kcms/systemsettings_qwidgets/kcm_kdeconnect.so
 %{_qt5_plugindir}/kdeconnect
 %{_qt5_plugindir}/kf5/kio/*.so
 %{_qt5_plugindir}/kf5/kfileitemaction/*.so
@@ -117,7 +117,6 @@ KDE Connect integration for the deepin file manager
 %{_datadir}/contractor/kdeconnect.contract
 %{_datadir}/icons/*/*/*/*
 %{_datadir}/zsh/site-functions/_kdeconnect
-%{_datadir}/kservices5/kcm_kdeconnect.desktop
 %{_datadir}/kservices5/plasma-kdeconnect.desktop
 %{_datadir}/metainfo/org.kde.kdeconnect.metainfo.xml
 
