@@ -40,6 +40,8 @@ BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	pkgconfig(qca2-qt5)
 BuildRequires:	pkgconfig(wayland-client)
 BuildRequires:	pkgconfig(wayland-scanner)
+BuildRequires:	cmake(WaylandProtocols)
+BuildRequires:	cmake(PlasmaWaylandProtocols)
 Requires:	sshfs
 Requires:	%{_lib}qca2-plugin-openssl
 Requires(post):	/bin/sh
