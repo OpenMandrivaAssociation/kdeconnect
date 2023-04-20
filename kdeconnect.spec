@@ -43,6 +43,7 @@ BuildRequires:	pkgconfig(wayland-scanner)
 BuildRequires:	cmake(WaylandProtocols)
 BuildRequires:	cmake(PlasmaWaylandProtocols)
 BuildRequires:	pkgconfig(wayland-protocols)
+BuildRequires:	cmake(KF5ModemManagerQt)
 Requires:	sshfs
 Requires:	%{_lib}qca2-plugin-openssl
 Requires(post):	/bin/sh
