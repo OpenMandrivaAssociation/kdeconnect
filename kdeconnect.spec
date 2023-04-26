@@ -1,10 +1,10 @@
-%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
+%define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 %define oname kdeconnect-kde
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
 Version:	23.04.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
@@ -14,13 +14,13 @@ Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{onam
 Source1:	kde-connect.xml
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5KCMUtils)
-BuildRequires:  cmake(KF5People)
-BuildRequires:  cmake(KF5PeopleVCard)
+BuildRequires:	cmake(KF5People)
+BuildRequires:	cmake(KF5PeopleVCard)
 BuildRequires:	cmake(KF5DocTools)
 BuildRequires:	cmake(KF5Declarative)
 BuildRequires:	cmake(KF5Notifications)
 BuildRequires:	cmake(KF5KIO)
-BuildRequires:  cmake(KF5Kirigami2)
+BuildRequires:	cmake(KF5Kirigami2)
 BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(KF5ConfigWidgets)
 BuildRequires:	cmake(KF5DBusAddons)
@@ -32,7 +32,7 @@ BuildRequires:	cmake(PlasmaWaylandProtocols)
 BuildRequires:	pkgconfig(libfakekey)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xtst)
-BuildRequires:  pkgconfig(Qt5Multimedia)
+BuildRequires:	pkgconfig(Qt5Multimedia)
 BuildRequires:	pkgconfig(Qt5X11Extras)
 BuildRequires:	pkgconfig(Qt5Quick)
 BuildRequires:	cmake(Qt5QuickControls2)
@@ -44,6 +44,8 @@ BuildRequires:	cmake(WaylandProtocols)
 BuildRequires:	cmake(PlasmaWaylandProtocols)
 BuildRequires:	pkgconfig(wayland-protocols)
 BuildRequires:	cmake(KF5ModemManagerQt)
+BuildRequires:	kirigami-addons
+Requires:	kirigami-addons
 Requires:	sshfs
 Requires:	%{_lib}qca2-plugin-openssl
 Requires(post):	/bin/sh
@@ -51,18 +53,18 @@ Requires(post):	/bin/sh
 # They can't be used outside of kdeconnect (no shipped headers or
 # *.so files).
 # Get rid of them.
-Obsoletes:	%{mklibname kdeconnectcore 0}
-Obsoletes:	%{mklibname kdeconnectcore 1}
-Obsoletes:	%{mklibname kdeconnectcore 20}
-Obsoletes:	%{mklibname kdeconnectcore 21}
-Obsoletes:	%{mklibname kdeconnectinterfaces 0}
-Obsoletes:	%{mklibname kdeconnectinterfaces 1}
-Obsoletes:	%{mklibname kdeconnectinterfaces 20}
-Obsoletes:	%{mklibname kdeconnectinterfaces 21}
-Obsoletes:	%{mklibname kdeconnectpluginkcm 0}
-Obsoletes:	%{mklibname kdeconnectpluginkcm 1}
-Obsoletes:	%{mklibname kdeconnectpluginkcm 20}
-Obsoletes:	%{mklibname kdeconnectpluginkcm 21}
+Obsoletes:	%{mklibname kdeconnectcore 0} < 23.04.0
+Obsoletes:	%{mklibname kdeconnectcore 1} < 23.04.0
+Obsoletes:	%{mklibname kdeconnectcore 20} < 23.04.0
+Obsoletes:	%{mklibname kdeconnectcore 21} < 23.04.0
+Obsoletes:	%{mklibname kdeconnectinterfaces 0} < 23.04.0
+Obsoletes:	%{mklibname kdeconnectinterfaces 1} < 23.04.0
+Obsoletes:	%{mklibname kdeconnectinterfaces 20} < 23.04.0
+Obsoletes:	%{mklibname kdeconnectinterfaces 21} < 23.04.0
+Obsoletes:	%{mklibname kdeconnectpluginkcm 0} < 23.04.0
+Obsoletes:	%{mklibname kdeconnectpluginkcm 1} < 23.04.0
+Obsoletes:	%{mklibname kdeconnectpluginkcm 20} < 23.04.0
+Obsoletes:	%{mklibname kdeconnectpluginkcm 21} < 23.04.0
 
 %description
 KDE Connect is a module to connect KDE with your smartphone.
