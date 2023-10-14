@@ -4,7 +4,7 @@
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
 Version:	23.08.2
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://albertvaka.wordpress.com/
@@ -45,7 +45,12 @@ BuildRequires:	cmake(PlasmaWaylandProtocols)
 BuildRequires:	pkgconfig(wayland-protocols)
 BuildRequires:	cmake(KF5ModemManagerQt)
 BuildRequires:	kirigami-addons
+Requires:   kirigami
 Requires:	kirigami-addons
+Requires:   kirigami-addons-kde5
+Requires:   qt5-qtquickcontrols
+Requires:   qt5-qtquickcontrols2
+Requires:   qt5-qtdeclarative
 Requires:	sshfs
 Requires:	%{_lib}qca2-plugin-openssl
 Requires(post):	/bin/sh
@@ -72,7 +77,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 
 %package nautilus
 Summary:	KDE Connect integration for Nautilus
-Supplements:	nautilus
+Requires:	nautilus
 Requires:	%{name} = %{EVRD}
 
 %description nautilus
@@ -80,7 +85,7 @@ KDE Connect integration for Nautilus
 
 %package thunar
 Summary:	KDE Connect integration for Thunar
-Supplements:	thunar
+Requires:	thunar
 Requires:	%{name} = %{EVRD}
 
 %description thunar
