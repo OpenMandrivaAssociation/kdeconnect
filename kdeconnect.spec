@@ -77,7 +77,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 
 %package nautilus
 Summary:	KDE Connect integration for Nautilus
-Requires:	nautilus
+Recommends:	nautilus
 Requires:	%{name} = %{EVRD}
 
 %description nautilus
@@ -85,7 +85,7 @@ KDE Connect integration for Nautilus
 
 %package thunar
 Summary:	KDE Connect integration for Thunar
-Requires:	thunar
+Recommends:	thunar
 Requires:	%{name} = %{EVRD}
 
 %description thunar
