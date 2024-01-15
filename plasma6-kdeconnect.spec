@@ -4,15 +4,16 @@
 Summary:	Connect KDE with your smartphone
 Name:		plasma6-kdeconnect
 Version:	24.01.90
-Release:	3
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
-Url:		http://albertvaka.wordpress.com/
-Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{oname}-%{version}.tar.xz
+Url:		https://albertvaka.wordpress.com/
+Source0:	https://download.kde.org/%{stable}/release-service/%{version}/src/%{oname}-%{version}.tar.xz
 # (tpg) add firewalld rule
 # https://issues.openmandriva.org/show_bug.cgi?id=1491
 Source1:	kde-connect.xml
 BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(KF6KirigamiAddons)
 BuildRequires:	cmake(KF6KCMUtils)
 BuildRequires:	cmake(KF6People)
 BuildRequires:	cmake(KF6DocTools)
@@ -32,6 +33,9 @@ BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(Qt6Multimedia)
 BuildRequires:	pkgconfig(Qt6Quick)
+BuildRequires:  cmake(Qt6Qml)
+BuildRequires:  cmake(Qt6QmlCore)
+BuildRequires:  cmake(Qt6QmlNetwork)
 BuildRequires:	cmake(Qt6QuickControls2)
 BuildRequires:	pkgconfig(Qt6Test)
 BuildRequires:	cmake(Qca-qt6)
