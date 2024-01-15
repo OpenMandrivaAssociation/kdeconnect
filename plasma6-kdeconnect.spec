@@ -29,6 +29,7 @@ BuildRequires:	cmake(KF6IconThemes)
 BuildRequires:	cmake(KF6QQC2DesktopStyle)
 BuildRequires:	cmake(KF6Package)
 BuildRequires:	cmake(PlasmaWaylandProtocols)
+BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(libfakekey)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xtst)
@@ -45,11 +46,14 @@ BuildRequires:	pkgconfig(wayland-scanner)
 BuildRequires:	cmake(WaylandProtocols)
 BuildRequires:	cmake(PlasmaWaylandProtocols)
 BuildRequires:	pkgconfig(wayland-protocols)
+BuildRequires:	cmake(Qt6WlShellIntegrationPrivate)
 BuildRequires:	cmake(KF6ModemManagerQt)
+BuildRequires: qt6-qtbase-theme-gtk3
 BuildRequires:	kirigami-addons
 Requires:   kirigami
 Requires:	kirigami-addons
 Requires:   kirigami-addons-kde6
+Requires: kf6-kirigami
 Requires:   qt6-qtquickcontrols
 Requires:   qt6-qtquickcontrols2
 Requires:   qt6-qtdeclarative
