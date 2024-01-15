@@ -50,7 +50,8 @@ BuildRequires:	cmake(PlasmaWaylandProtocols)
 BuildRequires:	pkgconfig(wayland-protocols)
 BuildRequires:	cmake(Qt6WlShellIntegrationPrivate)
 BuildRequires:	cmake(KF6ModemManagerQt)
-BuildRequires: qt6-qtbase-theme-gtk3
+BuildRequires:  qt6-qtbase-theme-gtk3
+BuildRequires:	pkgconfig(openssl)
 BuildRequires:	kirigami-addons
 Requires:   kirigami
 Requires:	kirigami-addons
