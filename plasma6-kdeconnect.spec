@@ -1,4 +1,4 @@
-%define git 20240218
+#define git 20240218
 %define gitbranch release/24.02
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
@@ -6,7 +6,7 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		plasma6-kdeconnect
-Version:	24.01.96
+Version:	24.02.0
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -157,7 +157,7 @@ KDE Connect integration for the deepin file manager
 #----------------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n kdeconnect-%{?git:kde-%{gitbranchd}}%{!?git:%{version}}
+%autosetup -p1 -n kdeconnect-%{?git:kde-%{gitbranchd}}%{!?git:kde-%{version}}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-G Ninja -DEXPERIMENTALAPP_ENABLED=ON
