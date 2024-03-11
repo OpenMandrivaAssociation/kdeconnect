@@ -7,7 +7,7 @@
 Summary:	Connect KDE with your smartphone
 Name:		plasma6-kdeconnect
 Version:	24.02.0
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://albertvaka.wordpress.com/
@@ -61,31 +61,13 @@ BuildRequires:  qt6-qtbase-theme-gtk3
 BuildRequires:	qt6-qtmultimedia-gstreamer
 BuildRequires:	pkgconfig(openssl)
 BuildRequires:	kirigami-addons
-Requires:	kirigami
-Requires:	kirigami-addons
-Requires:	kirigami-addons-kde6
 Requires:	kf6-kirigami
+Requires:	kirigami-addons
 Requires:	%{_lib}Qt6QuickControls2
 Requires:	qt6-qtdeclarative
 Requires:	sshfs
 Requires:	%{_lib}qca2-plugin-openssl
 Requires(post):	/bin/sh
-# There is no point in separate libpackages for internal libraries.
-# They can't be used outside of kdeconnect (no shipped headers or
-# *.so files).
-# Get rid of them.
-Obsoletes:	%{mklibname kdeconnectcore 0} < 23.04.0
-Obsoletes:	%{mklibname kdeconnectcore 1} < 23.04.0
-Obsoletes:	%{mklibname kdeconnectcore 20} < 23.04.0
-Obsoletes:	%{mklibname kdeconnectcore 21} < 23.04.0
-Obsoletes:	%{mklibname kdeconnectinterfaces 0} < 23.04.0
-Obsoletes:	%{mklibname kdeconnectinterfaces 1} < 23.04.0
-Obsoletes:	%{mklibname kdeconnectinterfaces 20} < 23.04.0
-Obsoletes:	%{mklibname kdeconnectinterfaces 21} < 23.04.0
-Obsoletes:	%{mklibname kdeconnectpluginkcm 0} < 23.04.0
-Obsoletes:	%{mklibname kdeconnectpluginkcm 1} < 23.04.0
-Obsoletes:	%{mklibname kdeconnectpluginkcm 20} < 23.04.0
-Obsoletes:	%{mklibname kdeconnectpluginkcm 21} < 23.04.0
 
 %description
 KDE Connect is a module to connect KDE with your smartphone.
@@ -179,6 +161,6 @@ rm %{buildroot}%{_libdir}/*.a
 %post
 # (tpg) reload firewalld
 if [ -x /usr/bin/firewall-cmd ]; then
-    /usr/bin/firewall-cmd --permanent --add-service kde-connect 2&>1 ||:
-    /usr/bin/firewall-cmd --reload 2&>1 ||:
+	/usr/bin/firewall-cmd --permanent --add-service kde-connect 2&>1 ||:
+	/usr/bin/firewall-cmd --reload 2&>1 ||:
 fi
