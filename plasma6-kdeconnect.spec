@@ -6,7 +6,7 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		plasma6-kdeconnect
-Version:	24.02.2
+Version:	24.05.0
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -103,12 +103,12 @@ KDE Connect integration for the deepin file manager
 %{_bindir}/kdeconnect-indicator
 %{_bindir}/kdeconnect-settings
 %{_bindir}/kdeconnect-sms
+%{_bindir}/kdeconnectd
 %{_libdir}/libkdeconnectcore.so.*
 %{_libdir}/libkdeconnectpluginkcm.so.*
 %{_datadir}/metainfo/org.kde.kdeconnect.appdata.xml
 %{_datadir}/applications/*.desktop
 %{_datadir}/knotifications6/kdeconnect.notifyrc
-%{_libdir}/libexec/kdeconnectd
 %{_sysconfdir}/xdg/autostart/org.kde.kdeconnect.daemon.desktop
 %{_datadir}/dbus-1/services/org.kde.kdeconnect.service
 %{_qtdir}/plugins/plasma/kcms/systemsettings_qwidgets/kcm_kdeconnect.so
