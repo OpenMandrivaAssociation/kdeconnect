@@ -7,7 +7,7 @@ Version:	23.08.5
 Release:	3
 License:	GPLv2+
 Group:		Graphical desktop/KDE
-Url:		http://albertvaka.wordpress.com/
+Url:		https://albertvaka.wordpress.com/
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{oname}-%{version}.tar.xz
 # (tpg) add firewalld rule
 # https://issues.openmandriva.org/show_bug.cgi?id=1491
