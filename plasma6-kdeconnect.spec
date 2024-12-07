@@ -7,7 +7,7 @@
 Summary:	Connect KDE with your smartphone
 Name:		plasma6-kdeconnect
 Version:	24.08.3
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://albertvaka.wordpress.com/
