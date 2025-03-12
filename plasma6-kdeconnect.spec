@@ -7,7 +7,7 @@
 Summary:	Connect KDE with your smartphone
 Name:		plasma6-kdeconnect
 Version:	24.12.3
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://albertvaka.wordpress.com/
@@ -67,7 +67,7 @@ Requires:	kirigami-addons
 Requires:	%{_lib}Qt6QuickControls2
 Requires:	qt6-qtdeclarative
 Requires:	sshfs
-Requires:	%{_lib}qca2-plugin-openssl
+Requires:	%{_lib}qca-qt6-plugin-openssl
 Requires(post):	/bin/sh
 
 %description
