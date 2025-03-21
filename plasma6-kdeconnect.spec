@@ -6,8 +6,8 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		plasma6-kdeconnect
-Version:	24.12.3
-Release:	%{?git:0.%{git}.}3
+Version:	25.03.80
+Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://albertvaka.wordpress.com/
@@ -58,8 +58,6 @@ BuildRequires:	cmake(PlasmaWaylandProtocols)
 BuildRequires:	pkgconfig(wayland-protocols)
 BuildRequires:	cmake(Qt6WlShellIntegrationPrivate)
 BuildRequires:	cmake(KF6ModemManagerQt)
-BuildRequires:  qt6-qtbase-theme-gtk3
-BuildRequires:	qt6-qtmultimedia-gstreamer
 BuildRequires:	pkgconfig(openssl)
 BuildRequires:	kirigami-addons
 Requires:	kf6-kirigami
