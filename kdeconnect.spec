@@ -5,7 +5,7 @@
 %define oname kdeconnect-kde
 
 Summary:	Connect KDE with your smartphone
-Name:		plasma6-kdeconnect
+Name:		kdeconnect
 Version:	25.04.0
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
