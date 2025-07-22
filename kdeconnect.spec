@@ -6,7 +6,7 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	25.04.0
+Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -68,6 +68,12 @@ Requires:	sshfs
 Requires:	%{_lib}qca-qt6-plugin-openssl
 Requires(post):	/bin/sh
 
+%rename plasma6-kdeconnect
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+BuildOption:	-DEXPERIMENTALAPP_ENABLED=ON
+
 %description
 KDE Connect is a module to connect KDE with your smartphone.
 You need to install KdeConnect.apk on your smartphone to make it work.
@@ -76,6 +82,7 @@ You need to install KdeConnect.apk on your smartphone to make it work.
 Summary:	KDE Connect integration for Nautilus
 Recommends:	nautilus
 Requires:	%{name} = %{EVRD}
+%rename plasma6-kdeconnect-nautilus
 
 %description nautilus
 KDE Connect integration for Nautilus
@@ -84,6 +91,7 @@ KDE Connect integration for Nautilus
 Summary:	KDE Connect integration for Thunar
 Recommends:	thunar
 Requires:	%{name} = %{EVRD}
+%rename plasma6-kdeconnect-thunar
 
 %description thunar
 KDE Connect integration for Thunar
@@ -91,6 +99,7 @@ KDE Connect integration for Thunar
 %package deepin
 Summary:	KDE Connect integration for the deepin file manager
 Requires:	%{name} = %{EVRD}
+%rename plasma6-kdeconnect-deepin
 
 %description deepin
 KDE Connect integration for the deepin file manager
@@ -137,18 +146,7 @@ KDE Connect integration for the deepin file manager
 
 #----------------------------------------------------------------------------
 
-%prep
-%autosetup -p1 -n kdeconnect-%{?git:kde-%{gitbranchd}}%{!?git:kde-%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja -DEXPERIMENTALAPP_ENABLED=ON
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-
+%install -a
 install -m644 -p -D %{SOURCE1} %{buildroot}%{_prefix}/lib/firewalld/services/kde-connect.xml
 
 # No need to package a static helper lib
