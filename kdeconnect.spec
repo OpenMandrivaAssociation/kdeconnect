@@ -6,8 +6,8 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	25.04.3
-Release:	%{?git:0.%{git}.}2
+Version:	25.08.0
+Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://albertvaka.wordpress.com/
@@ -75,6 +75,9 @@ BuildSystem:	cmake
 BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 BuildOption:	-DEXPERIMENTALAPP_ENABLED=ON
 
+%patchlist
+kdeconnect-qt-6.10.patch
+
 %description
 KDE Connect is a module to connect KDE with your smartphone.
 You need to install KdeConnect.apk on your smartphone to make it work.
@@ -110,17 +113,14 @@ KDE Connect integration for the deepin file manager
 %{_bindir}/kdeconnect-cli
 %{_bindir}/kdeconnect-handler
 %{_bindir}/kdeconnect-indicator
-%{_bindir}/kdeconnect-settings
 %{_bindir}/kdeconnect-sms
 %{_bindir}/kdeconnectd
 %{_libdir}/libkdeconnectcore.so.*
-%{_libdir}/libkdeconnectpluginkcm.so.*
 %{_datadir}/metainfo/org.kde.kdeconnect.appdata.xml
 %{_datadir}/applications/*.desktop
 %{_datadir}/knotifications6/kdeconnect.notifyrc
 %{_sysconfdir}/xdg/autostart/org.kde.kdeconnect.daemon.desktop
 %{_datadir}/dbus-1/services/org.kde.kdeconnect.service
-%{_qtdir}/plugins/plasma/kcms/systemsettings_qwidgets/kcm_kdeconnect.so
 %{_qtdir}/plugins/kdeconnect
 %{_qtdir}/plugins/kf6/kio/*.so
 %{_qtdir}/plugins/kf6/kfileitemaction/*.so
