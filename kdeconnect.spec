@@ -6,7 +6,7 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	25.08.1
+Version:	25.08.2
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -116,7 +116,6 @@ KDE Connect integration for the deepin file manager
 %{_bindir}/kdeconnect-sms
 %{_bindir}/kdeconnectd
 %{_libdir}/libkdeconnectcore.so.*
-%{_datadir}/metainfo/org.kde.kdeconnect.appdata.xml
 %{_datadir}/applications/*.desktop
 %{_datadir}/knotifications6/kdeconnect.notifyrc
 %{_sysconfdir}/xdg/autostart/org.kde.kdeconnect.daemon.desktop
