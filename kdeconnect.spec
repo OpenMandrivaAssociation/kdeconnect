@@ -6,7 +6,7 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	25.12.3
+Version:	26.04.0
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -134,6 +134,7 @@ KDE Connect integration for the deepin file manager
 %{_datadir}/zsh/site-functions/_kdeconnect
 %{_datadir}/metainfo/org.kde.kdeconnect.metainfo.xml
 %{_sysconfdir}/ufw/applications.d/kdeconnect
+%{_libdir}/udev/rules.d/40-kdeconnect-uinput.rules
 
 %files nautilus -f kdeconnect-nautilus-extension.lang
 %{_datadir}/nautilus-python/extensions/kdeconnect-share.py
@@ -148,9 +149,6 @@ KDE Connect integration for the deepin file manager
 
 %install -a
 install -m644 -p -D %{SOURCE1} %{buildroot}%{_prefix}/lib/firewalld/services/kde-connect.xml
-
-# No need to package a static helper lib
-rm %{buildroot}%{_libdir}/*.a
 
 %find_lang kdeconnect kdeconnect-cli kdeconnect-core kdeconnect-fileitemaction kdeconnect-kcm kdeconnect-kde kdeconnect-kded kdeconnect-plugins kdeconnect-kio kdeconnect-urlhandler plasma_applet_org.kde.kdeconnect kdeconnect-sms kdeconnect-app kdeconnect-indicator kdeconnect-interfaces kdeconnect-settings %{name}.lang --with-html
 %find_lang kdeconnect-nautilus-extension --with-html
