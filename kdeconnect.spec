@@ -6,7 +6,7 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	26.04.3
+Version:	26.08.0
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -77,9 +77,6 @@ BuildSystem:	cmake
 BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 BuildOption:	-DEXPERIMENTALAPP_ENABLED=ON
 
-%patchlist
-kdeconnect-openssl4.patch
-
 %description
 KDE Connect is a module to connect KDE with your smartphone.
 You need to install KdeConnect.apk on your smartphone to make it work.
@@ -138,6 +135,8 @@ KDE Connect integration for the deepin file manager
 %{_datadir}/metainfo/org.kde.kdeconnect.metainfo.xml
 %{_sysconfdir}/ufw/applications.d/kdeconnect
 %{_libdir}/udev/rules.d/40-kdeconnect-uinput.rules
+%{_datadir}/remoteview/kdeconnect-network.desktop
+%{_datadir}/solid/actions/solid_kdeconnect.desktop
 
 %files nautilus -f kdeconnect-nautilus-extension.lang
 %{_datadir}/nautilus-python/extensions/kdeconnect-share.py
