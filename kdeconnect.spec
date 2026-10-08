@@ -6,8 +6,8 @@
 
 Summary:	Connect KDE with your smartphone
 Name:		kdeconnect
-Version:	26.08.1
-Release:	%{?git:0.%{git}.}2
+Version:	26.08.2
+Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://albertvaka.wordpress.com/
@@ -134,7 +134,7 @@ KDE Connect integration for the deepin file manager
 %{_datadir}/zsh/site-functions/_kdeconnect
 %{_datadir}/metainfo/org.kde.kdeconnect.metainfo.xml
 %{_sysconfdir}/ufw/applications.d/kdeconnect
-%{_libdir}/udev/rules.d/40-kdeconnect-uinput.rules
+%{_udevrulesdir}/40-kdeconnect-uinput.rules
 %{_datadir}/remoteview/kdeconnect-network.desktop
 %{_datadir}/solid/actions/solid_kdeconnect.desktop
 
