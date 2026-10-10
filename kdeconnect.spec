@@ -62,6 +62,7 @@ BuildRequires:	cmake(KF6ModemManagerQt)
 BuildRequires:	pkgconfig(openssl)
 BuildRequires:	kirigami-addons
 BuildRequires:	pkgconfig(libevdev)
+BuildRequires:	pkgconfig(udev)
 BuildRequires:	pkgconfig(libei-1.0)
 Requires:	kf6-kirigami
 Requires:	kirigami-addons
